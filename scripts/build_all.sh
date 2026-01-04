@@ -1,22 +1,10 @@
 #!/bin/bash
-NPROC=2
-
-if [ "$(uname)" == "Darwin" ]; then
-     NPROC=$(sysctl -a | grep machdep.cpu.core_count | cut -d ':' -f 2)     
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-     NPROC=$(nproc)
-fi
-
-((NPROC--))
-
-echo $NPROC
-
 cd ..
 
-DIR=gd32_emac_*
+DIR=gd32_*
 MAKEFILE=Makefile*.GD32
 
-array=('DP83848')
+array=('DP83848' 'RTL8201F' 'LAN8700')
 
 for f in $DIR
 do
@@ -39,8 +27,8 @@ do
 		
 			for m in $MAKEFILE
 			do
-				make -f $m -j $NPROC clean
-				make -f $m -j $NPROC ENET_PHY=$i
+				make -f $m -j clean
+				make -f $m ENET_PHY=$i
 				retVal=$?
 				
 				if [ $retVal -ne 0 ]; then
@@ -75,9 +63,5 @@ do
 	fi
 done
 
-cd /tmp/$DIR
-
 find . -name gd32f4xx.bin | sort | xargs ls -al
 find . -name gd32f4xx.bin | xargs ls -al | wc -l
-
-cd -
