@@ -38,3 +38,5 @@
 # Apple
 .DS_Store
 /.cache
+/common/scripts/gd32/venv
+*.elf
