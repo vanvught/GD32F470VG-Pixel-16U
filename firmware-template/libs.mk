@@ -41,20 +41,12 @@ ifdef DMXNODE
   	LIBS+=dmxnode
 endif
 
-ifeq ($(findstring NODE_SHOWFILE,$(DEFINES)),NODE_SHOWFILE)
-	LIBS+=showfile osc
-endif
-
-ifeq ($(findstring OUTPUT_DMX_SEND,$(DEFINES)),OUTPUT_DMX_SEND)
-	DMX=1
-endif
-
 ifdef RDM
 	LIBS+=rdm
 endif
 
-ifdef DMX
-	LIBS+=dmx
+ifeq ($(findstring NODE_SHOWFILE,$(DEFINES)),NODE_SHOWFILE)
+	LIBS+=showfile osc
 endif
 
 ifeq ($(findstring OUTPUT_DDP_PIXEL_MULTI,$(DEFINES)),OUTPUT_DDP_PIXEL_MULTI)
@@ -67,10 +59,6 @@ else
 			LIBS+=dmxled pixeldmx pixel
 		endif
 	endif
-endif
-
-ifeq ($(findstring OUTPUT_DDP_PIXEL,$(DEFINES)),OUTPUT_DDP_PIXEL)
-	LIBS+=pixel
 endif
 
 LIBS+=network configstore flash displayudf display hal
