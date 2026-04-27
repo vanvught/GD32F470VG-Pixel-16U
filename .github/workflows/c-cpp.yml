@@ -1,0 +1,27 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches:  
+    - '*'
+  pull_request:
+    branches:  
+    - '*' 
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+    - name: Install arm-none-eabi
+      run: sudo apt install gcc-arm-none-eabi
+    - name: build all
+      run: |
+        cd scripts
+        ./build_all.sh
