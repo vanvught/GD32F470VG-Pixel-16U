@@ -1,8 +1,8 @@
 /**
- * @file rdm.cpp
+ * @file rdmsubdevicedummy.h
  *
  */
-/* Copyright (C) 2023-2026 by Arjan van Vught mailto:info@gd32-dmx.org
+/* Copyright (C) 2018-2020 by Arjan van Vught mailto:info@gd32-dmx.org
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,9 +23,25 @@
  * THE SOFTWARE.
  */
 
+#ifndef RDMSUBDEVICEDUMMY_H_
+#define RDMSUBDEVICEDUMMY_H_
+
 #include <cstdint>
 
-#include "rdm.h"
-#include "dmx.h" // IWYU pragma: keep
+#include "rdmsubdevice.h"
 
-uint8_t Rdm::s_transaction_number[dmx::config::max::kPorts];
+class RDMSubDeviceDummy: public RDMSubDevice {
+public:
+	RDMSubDeviceDummy(uint16_t dmx_start_address = 1, char nChipSselect = 0, uint8_t nSlaveAddress = 0, uint32_t nSpiSpeed = 0);
+
+	bool Initialize() override;
+
+	void Start() override;
+	void Stop() override;
+	void Data(const uint8_t *pDdata, uint32_t nLength) override;
+
+private:
+	void UpdateEvent(TRDMSubDeviceUpdateEvent tUpdateEvent) override;
+};
+
+#endif /* RDMSUBDEVICEDUMMY_H_ */
