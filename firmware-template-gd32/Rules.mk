@@ -31,8 +31,8 @@ include ../common/make/DmxNodeNodeType.mk
 include ../common/make/DmxNodeOutputType.mk
 include ../common/make/gd32/Includes.mk
 include ../common/make/Artnet.mk
-include ../common/make/gd32/mbedtls.mk
 include ../common/make/gd32/Validate.mk
+include ../common/make/Timestamp.mk
 
 LIBS+=gd32
 
