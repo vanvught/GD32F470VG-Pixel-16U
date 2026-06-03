@@ -151,7 +151,6 @@
 					<sourceEntries>
 						<entry excluding="firmware|lib|src|device|device/spi" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="firmware"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="lib"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
