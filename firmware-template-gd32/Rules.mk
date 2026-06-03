@@ -34,7 +34,7 @@ include ../common/make/Artnet.mk
 include ../common/make/gd32/Validate.mk
 include ../common/make/Timestamp.mk
 
-LIBS+=gd32
+LIBS+=fatfs gd32
 
 ifeq ($(findstring NODE_SHOWFILE,$(DEFINES)),NODE_SHOWFILE)
 	LIBS+=showfile

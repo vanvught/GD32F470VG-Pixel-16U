@@ -38,12 +38,10 @@
 
 # Apple
 .DS_Store
-
+._*
 
 /.cache
-
 /common/scripts/gd32/venv
-
-
 software_version_id.h
 /lib-gd32/device/usb/h
+
