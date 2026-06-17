@@ -46,3 +46,4 @@ software_version_id.h
 /lib-gd32/device/usb/h
 
 lib-remoteconfig/http/content/generate_content
+/lib-artnet/src/controller
