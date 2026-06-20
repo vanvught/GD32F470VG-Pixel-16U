@@ -61,6 +61,6 @@ else
 	endif
 endif
 
-LIBS+=network configstore flash displayudf display superloop hal hwclock
+LIBS+=network configstore flash displayudf display superloop board hwclock
 
 $(info $$LIBS [${LIBS}])
